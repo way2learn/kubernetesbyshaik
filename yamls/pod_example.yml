@@ -1,3 +1,4 @@
+# command to create the pod is --> kubectl create -f <file_name>
 apiVersion: v1
 kind: Pod
 metadata:
