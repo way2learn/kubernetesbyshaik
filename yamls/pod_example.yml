@@ -1,4 +1,5 @@
 # from remote
+# updated from loaclwq
 # command to create the pod is --> kubectl create -f <file_name>
 # comment to create or update the resource --> kubectl apply -f <file-name>wq!
 apiVersion: v1
