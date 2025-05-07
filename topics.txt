@@ -1,0 +1,32 @@
+
+
+
+
+
+=====Taints and Tolerations=====
+Taint - can be applied on Node to restrict the pod placement by the scheduler.
+Tolerations - can be used in pod definition file to allow or place the pod on the tained node if the scheduler chose the tainted node is a good fit for the allocation or placement.
+#kubectl describe nodes node-name | grep Taint
+#kubectl taint nodes node-name key=value:taint-effect
+taint-effect can be - NoSchedule | PreferNoSchedule | NoExecute
+
+NoSchedule - It will allow only the pods that has tainted tolerations, No effect on existing pods.
+PreferNoSchedule - It will allow only the pods has tained tolerations, But cannot guarentee, No Effect on existing pods.
+NoExecute - It will allow only the pods that has tainted tolerations, Also evicts the existing pods.
+#kubectl taint nodes node01 app=green:NoSchedule
+---
+apiVersion: v1
+kind: Pod
+metadata:
+     name: nginx-pod
+     labels:
+         app: web
+spec:
+   containers:
+      - name: nginx-con
+        image: nginx
+   tolerations:
+      - key: "app"
+        operator: "Equal"
+        value: "green"
+        effect: "NoSchedule"
