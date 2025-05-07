@@ -3,7 +3,7 @@
 
 
 
-=====Taints and Tolerations=====
+=========================================Taints and Tolerations Start=============================================
 Taint - can be applied on Node to restrict the pod placement by the scheduler.
 Tolerations - can be used in pod definition file to allow or place the pod on the tained node if the scheduler chose the tainted node is a good fit for the allocation or placement.
 #kubectl describe nodes node-name | grep Taint
@@ -30,3 +30,4 @@ spec:
         operator: "Equal"
         value: "green"
         effect: "NoSchedule"
+=========================================Taints and Tolerations End=============================================
